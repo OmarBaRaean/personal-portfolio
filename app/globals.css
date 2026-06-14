@@ -1,0 +1,54 @@
+@tailwind utilities;
+@import "tailwindcss";
+
+body {
+  background-color: #0a0a0a;
+  color: #e5e2e1;
+  margin: 0px;
+}
+
+.card-border-hover:hover {
+  border-color: #3b82f6;
+}
+
+.glow-effect:hover {
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.1);
+}
+
+@theme {
+  /* Colors */
+  --color-primary: #4edea3;
+  --color-secondary: #adc6ff;
+  --color-background: #131313;
+  --color-surface: #131313;
+  --color-surface-container-low: #1c1b1b;
+  --color-outline-variant: #3c4a42;
+  --color-on-surface: #e5e2e1;
+  --color-on-surface-variant: #bbcabf;
+  --color-primary-container: #10b981;
+  --color-on-primary-container: #00422b;
+  --color-secondary-container: #0566d9;
+  --color-surface-container-lowest: #0e0e0e;
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 40px;
+  --spacing-2xl: 64px;
+
+  /* Font sizes */
+  --text-display-lg: 48px;
+  --text-display-lg--line-height: 1.1;
+  --text-headline-md: 26px;
+  --text-headline-md--line-height: 1.3;
+  --text-body-lg: 18px;
+  --text-body-lg--line-height: 1.6;
+  --text-body-md: 16px;
+  --text-body-md--line-height: 1.6;
+  --text-body-sm: 14px;
+  --text-body-sm--line-height: 1.5;
+  --text-code-label: 13px;
+  --text-code-label--line-height: 1.2;
+}
