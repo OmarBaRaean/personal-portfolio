@@ -6,13 +6,17 @@ export default function MyFooter() {
                     © 2024 DevEngine Terminal. Built for performance.
                 </span>
                 <div className="flex gap-4">
-                    {[{"GitHub": "https://github.com/OmarBaRaean"}, {"LinkedIn": "https://www.linkedin.com/in/omar-ba-raean/"}, {"Email": "mailto:3mr.barayan@gmail.com"}].map((link) => (
+                    {[
+                        { label: "GitHub", href: "https://github.com/OmarBaRaean" },
+                        { label: "LinkedIn", href: "https://www.linkedin.com/in/omar-ba-raean/" },
+                        { label: "Email", href: "mailto:3mr.barayan@gmail.com" },
+                    ].map((link) => (
                         <a
-                            key={Object.keys(link)[0]}
+                            key={link.label}
                             className="font-['Inter'] text-[14px] leading-[1.5] text-[#bbcabf] hover:text-[#4edea3] transition-colors opacity-80 hover:opacity-100"
-                            href={Object.values(link)[1]}
+                            href={link.href}
                         >
-                            {Object.keys(link)[0]}
+                            {link.label}
                         </a>
                     ))}
                 </div>
