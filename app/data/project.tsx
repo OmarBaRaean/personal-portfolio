@@ -14,7 +14,7 @@ export const project1: MyProjectProps = {
   description:
     "Hybrid security lab spanning AWS and a local machine, simulating enterprise network conditions for hands-on detection and response practice. Designed to replicate real SOC environments with live traffic generation and alert tuning.",
   imageUrl: projectImages.homeLab,
-  docsUrl: [],
+  docsUrl: [{label: 'Report', Url: `https://docs.google.com/document/d/1rQDxMp7bgzMQHUyu00wik3NtDlVI5eTU/edit?usp=sharing&ouid=103318493768062807648&rtpof=true&sd=true~`}],
   videoUrl: undefined,
 };
 
@@ -23,7 +23,7 @@ export const project2: MyProjectProps = {
   description:
     "Python-based automation layer built on top of Wazuh targeting alert triage, incident enrichment, and response orchestration. Reduces manual analyst overhead by automating repetitive L1 tasks and enriching alerts with threat intelligence.",
   imageUrl: projectImages.socAutomation,
-  docsUrl: [],
+  docsUrl: [{label: 'Report', Url: `https://docs.google.com/document/d/1Ymu2webqiN4cdjnl4VPsSyXRSHAOA0vK/edit?usp=sharing&ouid=103318493768062807648&rtpof=true&sd=true`}],
   videoUrl: undefined,
 };
 
@@ -33,7 +33,7 @@ export const project3: MyProjectProps = {
     "Deployed Wazuh (SIEM/XDR) alongside a honeypot and correlated Wireshark captures with alerts across 200+ log events. Achieved 100% detection on 4 simulated intrusion categories through tuned thresholds and false positive analysis.",
   imageUrl: projectImages.honeypot,
   docsUrl: [],
-  videoUrl: undefined,
+  videoUrl: "https://drive.google.com/file/d/1IJ6Nnm_nyMcwHH7LWLHmY4C900wFA9Kc/view?usp=drive_link",
 };
 
 export const allProjects: MyProjectProps[] = [project1, project2, project3];
