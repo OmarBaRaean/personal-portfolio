@@ -44,8 +44,15 @@ export default function PortfolioPage() {
             environments.
           </p>
           <div className="flex gap-4 mt-2 max-w-svw flex-wrap">
+            <a className="flex-1 font-['Inter'] text-[14px] font-semibold tracking-[0.01em] bg-[#10b981] text-[#00422b] px-6 py-2 rounded-lg hover:opacity-90 transition-opacity flex items-center gap-2"
+              href="https://drive.google.com/file/d/12IYb6PXHon2ItppRJuxqZadkTE3Rfd7y/view?usp=sharing"
+              target="_blank"
+            >
+              <span className="material-symbols-outlined text-sm">description </span>{" "}
+              CV
+            </a>
             <a
-              className="flex-1 font-['Inter'] text-[14px] font-semibold tracking-[0.01em] bg-[#10b981] text-[#00422b] px-6 py-2 rounded-lg hover:opacity-90 transition-opacity flex items-center gap-2"
+              className="flex-1 font-['Inter'] text-[14px] font-semibold tracking-[0.01em] bg-transparent border border-[#3c4a42] text-[#e5e2e1] px-6 py-2 rounded-lg hover:border-[#adc6ff] transition-colors flex items-center gap-2"
               href="https://github.com/OmarBaRaean"
               target="_blank"            >
               <span className="material-symbols-outlined text-sm">code</span>{" "}
