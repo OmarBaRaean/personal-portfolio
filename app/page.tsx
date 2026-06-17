@@ -61,7 +61,7 @@ export default function PortfolioPage() {
             </a>
             <a
               className="flex-1 font-['Inter'] text-[14px] font-semibold tracking-[0.01em] bg-transparent border border-[#3c4a42] text-[#e5e2e1] px-6 py-2 rounded-lg hover:border-[#adc6ff] transition-colors flex items-center gap-2"
-              href=""
+              href="mailto:3mr.barayan@gmail.com"
             >
               <span className="material-symbols-outlined text-sm">mail</span>{" "}
               Email

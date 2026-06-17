@@ -25,7 +25,7 @@ export default function MyHeader() {
             terminal
           </span>
           <span className="text-headline-md leading-[1.3] font-bold text-[#4edea3]">
-            DevEngine
+            OmarDev
           </span>
         </div>
       </div>
