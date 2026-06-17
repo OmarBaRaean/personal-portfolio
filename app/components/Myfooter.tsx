@@ -3,8 +3,7 @@ export default function MyFooter() {
         <footer className="bg-[#0e0e0e] border-t border-[#3c4a42] w-full py-10 mt-auto">
             <div className="flex flex-col md:flex-row justify-between items-center px-6 max-w-[1280px] mx-auto gap-4">
                 <span className="font-['JetBrains_Mono'] text-[13px] leading-[1.2] font-medium text-[#bbcabf]">
-                    © 2024 DevEngine Terminal. Built for performance.
-                </span>
+© 2026 Omar Ba Raean · Built for security, not just performance.                </span>
                 <div className="flex gap-4">
                     {[
                         { label: "GitHub", href: "https://github.com/OmarBaRaean" },
