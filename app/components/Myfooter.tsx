@@ -10,7 +10,7 @@ export default function MyFooter() {
                         <a
                             key={Object.keys(link)[0]}
                             className="font-['Inter'] text-[14px] leading-[1.5] text-[#bbcabf] hover:text-[#4edea3] transition-colors opacity-80 hover:opacity-100"
-                            href={Object.values(link)[0]}
+                            href={Object.values(link)[1]}
                         >
                             {Object.keys(link)[0]}
                         </a>
