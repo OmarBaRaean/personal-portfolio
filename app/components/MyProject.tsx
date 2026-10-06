@@ -39,7 +39,7 @@ export default function MyProject({
                         src={TheProject.imageUrl}
                     />
                     <div className="absolute inset-0 bg-linear-to-t from-ink via-ink/40 to-transparent" />
-                    <span className="absolute top-4 left-4 font-mono text-[11px] tracking-widest text-accent bg-ink/70 backdrop-blur px-2 py-1 rounded-md border border-accent/20">
+                    <span className="absolute top-4 left-4 font-mono text-[11px] tracking-widest text-accent bg-ink/85 px-2 py-1 rounded-md border border-accent/20">
                         0{index + 1}
                     </span>
                 </div>

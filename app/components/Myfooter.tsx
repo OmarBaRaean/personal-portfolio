@@ -12,7 +12,7 @@ export default function MyFooter() {
         <footer className="w-full mt-auto">
             <Reveal id="contact" className="px-4 md:px-8 max-w-6xl mx-auto scroll-mt-20">
                 <div className="reveal-item relative overflow-hidden rounded-3xl border border-line bg-ink-2 px-6 py-14 md:py-20 text-center">
-                    <div className="orb w-[420px] h-[420px] bg-accent/15 -top-48 left-1/2 -translate-x-1/2" />
+                    <div className="orb w-[560px] h-[560px] [--orb:rgba(34,211,238,0.18)] -top-64 left-1/2 -translate-x-1/2" />
                     <div className="relative flex flex-col items-center gap-5">
                         <span className="font-mono text-[12px] tracking-[0.2em] uppercase text-accent">
                             04 <span className="text-muted">/</span> Contact

@@ -22,7 +22,7 @@ export default function MyHeader() {
   return (
     <header
       className={`fixed top-0 inset-x-0 z-40 border-b transition-all duration-300
-        ${scrolled ? "bg-ink/70 backdrop-blur-xl border-line" : "bg-transparent border-transparent"}`}
+        ${scrolled ? "bg-ink/95 border-line" : "bg-transparent border-transparent"}`}
     >
       <div className="flex items-center justify-between gap-4 px-4 md:px-8 max-w-6xl mx-auto h-16">
         <a href="#top" className="flex items-center gap-2.5 font-semibold text-fg">

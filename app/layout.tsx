@@ -21,7 +21,7 @@ export default function RootLayout({
       <head>
         <link
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=bug_report,close,cloud,code,data_object,description,lan,play_circle,policy,radar,security,shield,translate&display=block"
         />
       </head>
       <body className="font-sans antialiased">{children}</body>

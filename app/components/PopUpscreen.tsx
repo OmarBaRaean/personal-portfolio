@@ -29,7 +29,7 @@ export default function ProjectPopup({
     return (
         // backdrop
         <div
-            className="backdrop-in fixed inset-0 z-50 flex items-center justify-center bg-ink/80 backdrop-blur-md px-4"
+            className="backdrop-in fixed inset-0 z-50 flex items-center justify-center bg-ink/90 px-4"
             onClick={onClose}
         >
             {/* modal */}
@@ -50,7 +50,7 @@ export default function ProjectPopup({
                     <button
                         type="button"
                         aria-label="Close"
-                        className="absolute top-4 right-4 grid place-items-center w-9 h-9 rounded-full bg-ink/70 backdrop-blur border border-line text-fg hover:text-accent hover:border-accent/50 transition-colors cursor-pointer"
+                        className="absolute top-4 right-4 grid place-items-center w-9 h-9 rounded-full bg-ink/85 border border-line text-fg hover:text-accent hover:border-accent/50 transition-colors cursor-pointer"
                         onClick={onClose}
                     >
                         <span className="material-symbols-outlined text-[18px]">close</span>

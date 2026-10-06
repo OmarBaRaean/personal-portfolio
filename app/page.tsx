@@ -10,6 +10,7 @@ import { allProjects } from "@/app/data/project";
 import ProjectPopup from "./components/PopUpscreen";
 import { allCredentials } from "@/app/data/Credentials";
 import Reveal from "./components/Reveal";
+import MatrixRain from "./components/MatrixRain";
 import SectionHeading from "./components/SectionHeading";
 import { DownloadIcon, GitHubIcon, LinkedInIcon, MailIcon, ShieldIcon } from "./components/Icons";
 
@@ -52,8 +53,9 @@ export default function PortfolioPage() {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="hero-grid" />
-        <div className="orb w-[520px] h-[520px] bg-accent/20 -top-40 -left-32" />
-        <div className="orb w-[460px] h-[460px] bg-accent-2/20 top-20 -right-40 [animation-delay:-6s]" />
+        <div className="orb w-[700px] h-[700px] [--orb:rgba(34,211,238,0.22)] -top-64 -left-56" />
+        <div className="orb w-[620px] h-[620px] [--orb:rgba(59,130,246,0.22)] top-0 -right-56" />
+        <MatrixRain />
 
         <div className="relative px-4 md:px-8 max-w-6xl mx-auto pt-36 pb-24 md:pt-44 md:pb-32 flex flex-col items-start gap-7">
           <span className="fade-up flex items-center gap-2 text-[13px] text-muted px-3 py-1.5 rounded-full border border-line bg-white/[0.03]" style={delay(0)}>

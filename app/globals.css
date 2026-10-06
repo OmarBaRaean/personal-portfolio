@@ -84,6 +84,7 @@ body {
 }
 
 /* ---------- Hero background ---------- */
+/* Static grid, faded out toward the edges */
 .hero-grid {
   position: absolute;
   inset: 0;
@@ -92,22 +93,28 @@ body {
     linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
   background-size: 56px 56px;
   mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 75%);
-  animation: grid-pan 8s linear infinite;
 }
 
-@keyframes grid-pan {
-  to { background-position: 56px 56px; }
+/* Falling code (its fade is drawn in MatrixRain, not masked here) */
+.matrix-rain {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  animation: rain-in 1.5s ease-out 1.2s forwards;
 }
 
+@keyframes rain-in {
+  to { opacity: 0.45; }
+}
+
+/* Soft static glow: a radial gradient instead of a blur filter */
 .orb {
   position: absolute;
   border-radius: 9999px;
-  filter: blur(90px);
-  animation: float 12s ease-in-out infinite alternate;
-}
-
-@keyframes float {
-  to { transform: translate(40px, -30px) scale(1.1); }
+  background: radial-gradient(circle, var(--orb) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .text-gradient {
@@ -160,18 +167,15 @@ body {
 .reveal-item {
   opacity: 0;
   transform: translateY(28px);
-  filter: blur(4px);
   transition:
     opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-    filter 0.7s ease-out;
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
   transition-delay: calc(var(--i, 0) * 70ms);
 }
 
 .is-visible .reveal-item {
   opacity: 1;
   transform: none;
-  filter: none;
 }
 
 /* ---------- Glass card with cursor spotlight ---------- */
@@ -226,7 +230,8 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .intro { display: none; }
+  .intro,
+  .matrix-rain { display: none; }
   .fade-up,
   .reveal-item {
     opacity: 1;
@@ -235,8 +240,6 @@ body {
     animation: none;
     transition: none;
   }
-  .hero-grid,
-  .orb,
   .pulse-dot::after,
   .modal-in,
   .backdrop-in {
