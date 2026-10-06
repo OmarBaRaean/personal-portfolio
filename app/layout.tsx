@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const jetbrains = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains" });
 
 export const metadata: Metadata = {
-  title: "Omar Ba Raean | SOC Analyst & Security Engineer",
+  title: "Omar Ba Raean",
   description:
     "SOC Analyst and Security Engineer specializing in SIEM engineering with Splunk and Wazuh, network traffic analysis, and hands-on security labs.",
 };
