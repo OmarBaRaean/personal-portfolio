@@ -1,3 +1,5 @@
+import GlowCard from "./GlowCard";
+
 export interface SkillData {
   name: string;
   color: string;
@@ -20,31 +22,29 @@ export default function SkillCollection({
       { name: "Python", color: "#adc6ff" },
     ],
   },
+  index = 0,
 }: {
   sections?: SkillCard;
+  index?: number;
 }) {
   return (
-    <div className="bg-[#1c1b1b] border border-[#3c4a42] rounded-xl p-4 flex flex-col gap-4 hover:border-[#3b82f6] transition-colors hover:shadow-[0_0_15px_rgba(59,130,246,0.1)]">
-      <div className="flex items-center gap-2 text-[#4edea3]">
-        <span className="material-symbols-outlined">{sections.icon}</span>
-        <h3 className="text-[14px] font-semibold tracking-[0.01em]">
-          {sections.title}
-        </h3>
+    <GlowCard index={index} className="p-6 flex flex-col gap-5">
+      <div className="flex items-center gap-3">
+        <span className="grid place-items-center w-10 h-10 rounded-xl bg-accent/10 border border-accent/20 text-accent">
+          <span className="material-symbols-outlined text-[20px]">{sections.icon}</span>
+        </span>
+        <h3 className="text-[16px] font-semibold text-fg">{sections.title}</h3>
       </div>
       <div className="flex flex-wrap gap-2">
         {sections.skills?.map((skill) => (
           <span
             key={skill.name}
-            className="flex items-center gap-1 bg-[#131313] font-['JetBrains_Mono'] text-[13px] leading-[1.2] font-medium px-2 py-1 rounded text-[#bbcabf] border border-[#3c4a42]"
+            className="text-[13px] px-3 py-1 rounded-full text-muted bg-white/[0.03] border border-line"
           >
-            <span
-              className="inline-block w-2 h-2 rounded-full shrink-0"
-              style={{ backgroundColor: skill.color }}
-            />
             {skill.name}
           </span>
         ))}
       </div>
-    </div>
+    </GlowCard>
   );
 }

@@ -1,3 +1,6 @@
+import GlowCard from "./GlowCard";
+import { ArrowIcon, ShieldIcon } from "./Icons";
+
 export interface CredentialInfo {
     title: string;
     issuedDate: string;
@@ -9,34 +12,29 @@ export default function Credential({ Certificate = {
     title: "Certification Title",
     issuedDate: "January 2024",
     CertURL: "#",
-} }: { Certificate?: CredentialInfo }) {
+}, index = 0 }: { Certificate?: CredentialInfo; index?: number }) {
     return (
-        <div className="bg-[#1c1b1b] border border-[#3c4a42] rounded-xl p-4 flex justify-between items-center hover:border-[#3b82f6] transition-colors">
-            <div className="flex items-center gap-4">
-                <span className="material-symbols-outlined text-[#4edea3] text-3xl">
-                    verified
-                </span>
-                <div>
-                    <h3 className="text-[14px] font-semibold tracking-[0.01em] text-[#e5e2e1]">
-                        {Certificate.title}
-                    </h3>
-                    <p className="text-[14px] leading-[1.5] text-[#bbcabf]">
-                        Issued: {Certificate.issuedDate}
-                    </p>
-                </div>
+        <GlowCard index={index} className="p-5 flex items-center gap-4">
+            <span className="grid place-items-center shrink-0 w-11 h-11 rounded-xl bg-accent/10 border border-accent/20 text-accent">
+                <ShieldIcon className="w-5 h-5" />
+            </span>
+            <div className="flex flex-col gap-0.5 grow min-w-0">
+                <h3 className="text-[15px] font-semibold text-fg">{Certificate.title}</h3>
+                <span className="font-mono text-[12px] text-muted">Issued {Certificate.issuedDate}</span>
             </div>
-            {((Certificate.CertURL) &&
+            {Certificate.CertURL ? (
                 <a
-                    className="font-['JetBrains_Mono'] text-[13px] leading-[1.2] font-medium text-[#adc6ff] hover:text-[#4edea3] transition-colors"
-                    href={Certificate.CertURL || "#"}
+                    className="group/link flex items-center gap-1 shrink-0 text-[13px] font-medium text-accent hover:text-fg transition-colors"
+                    href={Certificate.CertURL}
                     target="_blank"
-
+                    rel="noopener noreferrer"
                 >
                     Verify
-                </a>) || (Certificate.EmbedCode) &&
-                <div dangerouslySetInnerHTML={{ __html: Certificate.EmbedCode }} />
-
-            }
-        </div>
+                    <ArrowIcon className="w-3.5 h-3.5 -rotate-45 transition-transform group-hover/link:translate-x-0.5" />
+                </a>
+            ) : (
+                Certificate.EmbedCode && <div dangerouslySetInnerHTML={{ __html: Certificate.EmbedCode }} />
+            )}
+        </GlowCard>
     );
 }

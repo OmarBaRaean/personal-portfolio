@@ -1,4 +1,7 @@
 "use client";
+import GlowCard from "./GlowCard";
+import { ArrowIcon } from "./Icons";
+
 export interface MyUrls{
     Url: string;
     label: string;
@@ -19,41 +22,38 @@ export default function MyProject({
         description: "A brief description of the project goes here.",
         imageUrl: "https://via.placeholder.com/400x300",
     },
+    index = 0,
     onViewClick,
 }: {
     TheProject?: MyProjectProps;
+    index?: number;
     onViewClick?: () => void;
 }) {
     return (
-        <div className="bg-[#1c1b1b] border border-[#3c4a42] rounded-xl overflow-hidden hover:border-[#3b82f6] transition-colors flex flex-col">
-            <div className="h-48 bg-[#131313] border-b border-[#3c4a42] relative flex items-center justify-center">
-
-                <img
-                    alt={TheProject.title}
-                    className="w-full h-full object-cover opacity-60 mix-blend-luminosity"
-                    src={TheProject.imageUrl}
-                />
-            </div>
-            <div className="p-4 flex flex-col gap-2 flex-grow">
-                <div className="flex justify-between items-start">
-                    <h3 className="text-[14px] font-semibold tracking-[0.01em] text-[#4edea3]">
-                        {TheProject.title}
-                    </h3>
-                </div>
-                <p className="text-[14px] leading-[1.5] text-[#bbcabf] flex-grow line-clamp-2">
-                    {TheProject.description}
-                </p>
-                <button
-                    type="button"
-                    className="self-start font-['JetBrains_Mono'] text-[13px] leading-[1.2] font-medium text-[#adc6ff] hover:text-[#4edea3] transition-colors flex items-center gap-1 mt-2 cursor-pointer"
-                    onClick={onViewClick}
-                >
-                    View Details
-                    <span className="material-symbols-outlined text-sm">
-                        arrow_forward
+        <GlowCard index={index} className="group overflow-hidden flex flex-col">
+            <button type="button" onClick={onViewClick} className="flex flex-col grow text-left cursor-pointer">
+                <div className="relative h-48 overflow-hidden">
+                    <img
+                        alt={TheProject.title}
+                        className="w-full h-full object-cover opacity-70 transition-transform duration-700 group-hover:scale-105"
+                        src={TheProject.imageUrl}
+                    />
+                    <div className="absolute inset-0 bg-linear-to-t from-ink via-ink/40 to-transparent" />
+                    <span className="absolute top-4 left-4 font-mono text-[11px] tracking-widest text-accent bg-ink/70 backdrop-blur px-2 py-1 rounded-md border border-accent/20">
+                        0{index + 1}
                     </span>
-                </button>
-            </div>
-        </div>
+                </div>
+                <div className="p-6 flex flex-col gap-3 grow">
+                    <h3 className="text-[18px] font-semibold text-fg">{TheProject.title}</h3>
+                    <p className="text-[14px] leading-[1.6] text-muted grow line-clamp-3">
+                        {TheProject.description}
+                    </p>
+                    <span className="flex items-center gap-1.5 text-[14px] font-medium text-accent mt-1">
+                        View details
+                        <ArrowIcon className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                    </span>
+                </div>
+            </button>
+        </GlowCard>
     );
 }

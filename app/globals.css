@@ -1,54 +1,245 @@
-@tailwind utilities;
 @import "tailwindcss";
 
-body {
-  background-color: #0a0a0a;
-  color: #e5e2e1;
-  margin: 0px;
-}
-
-.card-border-hover:hover {
-  border-color: #3b82f6;
-}
-
-.glow-effect:hover {
-  box-shadow: 0 0 15px rgba(59, 130, 246, 0.1);
-}
-
 @theme {
-  /* Colors */
-  --color-primary: #4edea3;
-  --color-secondary: #adc6ff;
-  --color-background: #131313;
-  --color-surface: #131313;
-  --color-surface-container-low: #1c1b1b;
-  --color-outline-variant: #3c4a42;
-  --color-on-surface: #e5e2e1;
-  --color-on-surface-variant: #bbcabf;
-  --color-primary-container: #10b981;
-  --color-on-primary-container: #00422b;
-  --color-secondary-container: #0566d9;
-  --color-surface-container-lowest: #0e0e0e;
+  --color-ink: #05070d;
+  --color-ink-2: #0a0e18;
+  --color-line: rgba(148, 163, 184, 0.12);
+  --color-fg: #e6edf7;
+  --color-muted: #8b98ad;
+  --color-accent: #22d3ee;
+  --color-accent-2: #3b82f6;
 
-  /* Spacing */
-  --spacing-xs: 4px;
-  --spacing-sm: 8px;
-  --spacing-md: 16px;
-  --spacing-lg: 24px;
-  --spacing-xl: 40px;
-  --spacing-2xl: 64px;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo, monospace;
+}
 
-  /* Font sizes */
-  --text-display-lg: 48px;
-  --text-display-lg--line-height: 1.1;
-  --text-headline-md: 26px;
-  --text-headline-md--line-height: 1.3;
-  --text-body-lg: 18px;
-  --text-body-lg--line-height: 1.6;
-  --text-body-md: 16px;
-  --text-body-md--line-height: 1.6;
-  --text-body-sm: 14px;
-  --text-body-sm--line-height: 1.5;
-  --text-code-label: 13px;
-  --text-code-label--line-height: 1.2;
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-ink);
+  color: var(--color-fg);
+  margin: 0;
+}
+
+::selection {
+  background: rgba(34, 211, 238, 0.3);
+  color: #fff;
+}
+
+/* ---------- Intro (pure CSS, plays once on load) ---------- */
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background: var(--color-ink);
+  animation: intro-out 0.5s ease-in 1.15s forwards;
+}
+
+.intro-shield path {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: draw 0.9s ease-out 0.1s forwards;
+}
+
+.intro-bar {
+  width: 140px;
+  height: 2px;
+  background: var(--color-line);
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.intro-bar::after {
+  content: "";
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-accent-2), var(--color-accent));
+  transform-origin: left;
+  transform: scaleX(0);
+  animation: fill 1s ease-out 0.1s forwards;
+}
+
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes fill { to { transform: scaleX(1); } }
+@keyframes intro-out {
+  to { opacity: 0; visibility: hidden; transform: scale(1.04); }
+}
+
+/* ---------- Hero entrance ---------- */
+.fade-up {
+  opacity: 0;
+  animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0s) forwards;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); filter: blur(6px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+
+/* ---------- Hero background ---------- */
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 75%);
+  animation: grid-pan 8s linear infinite;
+}
+
+@keyframes grid-pan {
+  to { background-position: 56px 56px; }
+}
+
+.orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  animation: float 12s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+  to { transform: translate(40px, -30px) scale(1.1); }
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #67e8f9, #22d3ee 40%, #3b82f6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.pulse-dot {
+  position: relative;
+}
+
+.pulse-dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: inherit;
+  animation: ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes ping {
+  75%, 100% { transform: scale(2.4); opacity: 0; }
+}
+
+/* ---------- Scroll progress (scroll-driven, where supported) ---------- */
+.scroll-progress {
+  display: none;
+}
+
+@supports (animation-timeline: scroll()) {
+  .scroll-progress {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    z-index: 50;
+    background: linear-gradient(90deg, var(--color-accent-2), var(--color-accent));
+    transform-origin: left;
+    transform: scaleX(0);
+    animation: fill linear both;
+    animation-timeline: scroll(root);
+  }
+}
+
+/* ---------- Scroll reveal (toggled by <Reveal />) ---------- */
+.reveal-item {
+  opacity: 0;
+  transform: translateY(28px);
+  filter: blur(4px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.7s ease-out;
+  transition-delay: calc(var(--i, 0) * 70ms);
+}
+
+.is-visible .reveal-item {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+/* ---------- Glass card with cursor spotlight ---------- */
+.glow-card {
+  position: relative;
+  isolation: isolate;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.01));
+  border: 1px solid var(--color-line);
+  border-radius: 16px;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.glow-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: radial-gradient(
+    420px circle at var(--x, 50%) var(--y, 50%),
+    rgba(34, 211, 238, 0.12),
+    transparent 45%
+  );
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.glow-card:hover {
+  border-color: rgba(34, 211, 238, 0.35);
+}
+
+.glow-card:hover::before {
+  opacity: 1;
+}
+
+/* ---------- Modal ---------- */
+.modal-in {
+  animation: modal-in 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.backdrop-in {
+  animation: backdrop-in 0.25s ease-out;
+}
+
+@keyframes modal-in {
+  from { opacity: 0; transform: translateY(16px) scale(0.97); }
+}
+
+@keyframes backdrop-in {
+  from { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .intro { display: none; }
+  .fade-up,
+  .reveal-item {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    animation: none;
+    transition: none;
+  }
+  .hero-grid,
+  .orb,
+  .pulse-dot::after,
+  .modal-in,
+  .backdrop-in {
+    animation: none;
+  }
 }

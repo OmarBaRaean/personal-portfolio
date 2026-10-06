@@ -1,33 +1,55 @@
 "use client";
 import { useEffect, useState } from "react";
+import { ShieldIcon } from "./Icons";
+
+const navLinks = [
+  { label: "Skills", href: "#skills" },
+  { label: "Projects", href: "#projects" },
+  { label: "Credentials", href: "#certs" },
+  { label: "Contact", href: "#contact" },
+];
 
 export default function MyHeader() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <header className="bg-[#131313] fixed top-0 inset-x-0 w-full z-25 border-b border-[#3c4a42] transition-all duration-500 ease-in-out">
-      <div
-        className={`relative flex items-center px-6 max-w-[1280px] mx-auto w-full transition-all duration-500 ease-in-out
-          ${scrolled ? "min-h-[48px]" : "min-h-[80px]"}`}
-      >
-        {/* Logo + Name */}
-        <div
-          className={`flex items-center gap-2 transition-all duration-500 ease-in-out
-            ${scrolled ? "translate-x-0" : "translate-x-[calc(50vw-200px)]"}`}
+    <header
+      className={`fixed top-0 inset-x-0 z-40 border-b transition-all duration-300
+        ${scrolled ? "bg-ink/70 backdrop-blur-xl border-line" : "bg-transparent border-transparent"}`}
+    >
+      <div className="flex items-center justify-between gap-4 px-4 md:px-8 max-w-6xl mx-auto h-16">
+        <a href="#top" className="flex items-center gap-2.5 font-semibold text-fg">
+          <span className="grid place-items-center w-8 h-8 rounded-lg bg-accent/10 border border-accent/30 text-accent">
+            <ShieldIcon className="w-4.5 h-4.5" />
+          </span>
+          Omar Ba Raean
+        </a>
+        <nav className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="text-[14px] text-muted hover:text-fg transition-colors"
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+        <a
+          href="/Omar_Ba_Raean_CV.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[13px] font-medium px-4 py-2 rounded-full border border-line text-fg hover:border-accent/50 hover:text-accent transition-colors"
         >
-          <span className="material-symbols-outlined text-[#4edea3]">
-            terminal
-          </span>
-          <span className="text-headline-md leading-[1.3] font-bold text-[#4edea3]">
-            OmarDev
-          </span>
-        </div>
+          Resume
+        </a>
       </div>
     </header>
   );
