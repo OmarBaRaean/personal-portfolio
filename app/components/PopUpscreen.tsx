@@ -31,11 +31,11 @@ export default function ProjectPopup({
         >
             {/* modal */}
             <div
-                className="relative bg-[#1c1b1b] border border-[#3c4a42] rounded-xl w-dvw overflow-hidden shadow-[0_0_40px_rgba(78,222,163,0.08)] flex flex-col"
+                className="relative bg-[#1c1b1b] border border-[#3c4a42] rounded-xl w-full max-w-[672px] max-h-[90vh] overflow-y-auto shadow-[0_0_40px_rgba(78,222,163,0.08)] flex flex-col"
                 onClick={(e) => e.stopPropagation()}
             >
                 {/* image */}
-                <div className="h-56 bg-[#131313] border-b border-[#3c4a42] relative flex items-center justify-center overflow-hidden">
+                <div className="h-56 shrink-0 bg-[#131313] border-b border-[#3c4a42] relative flex items-center justify-center overflow-hidden">
                     <img
                         alt={project.title}
                         className="w-full h-full object-cover opacity-60"
@@ -54,7 +54,7 @@ export default function ProjectPopup({
                 <div className="p-6 flex flex-col gap-4">
                     {/* title + badge */}
                     <div className="flex justify-between items-start gap-4">
-                        <h2 className="font-['Inter'] text-[22px] leading-[1.3] font-bold text-[#e5e2e1]">
+                        <h2 className="text-[22px] leading-[1.3] font-bold text-[#e5e2e1]">
                             {project.title}
                         </h2>
                         {/* {project.language && (
@@ -65,7 +65,7 @@ export default function ProjectPopup({
                     </div>
 
                     {/* full description */}
-                    <p className="font-['Inter'] text-[15px] leading-[1.6] text-[#bbcabf]">
+                    <p className="text-[15px] leading-[1.6] text-[#bbcabf]">
                         {project.description}
                     </p>
 
@@ -75,15 +75,16 @@ export default function ProjectPopup({
                     {/* links */}
                     <div className="flex gap-3 flex-wrap items-center">
                         {project.docsUrl &&
-                            project.docsUrl.map((url, index) => (
+                            project.docsUrl.map((url) => (
                                 <a
+                                    key={url.Url}
                                     href={url.Url}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex items-center gap-2 font-['Inter'] text-[13px] font-semibold bg-[#131313] border border-[#3c4a42] text-[#e5e2e1] px-4 py-2 rounded-lg hover:border-[#adc6ff] transition-colors"
+                                    className="flex items-center gap-2 text-[13px] font-semibold bg-[#131313] border border-[#3c4a42] text-[#e5e2e1] px-4 py-2 rounded-lg hover:border-[#adc6ff] transition-colors"
                                 >
                                     <span className="material-symbols-outlined text-[16px]">
-                                        description
+                                        {url.icon ?? "description"}
                                     </span>
                                     {url.label}
                                 </a>
@@ -93,7 +94,7 @@ export default function ProjectPopup({
                                 href={project.videoUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center gap-2 font-['Inter'] text-[13px] font-semibold bg-[#131313] border border-[#3c4a42] text-[#e5e2e1] px-4 py-2 rounded-lg hover:border-[#adc6ff] transition-colors"
+                                className="flex items-center gap-2 text-[13px] font-semibold bg-[#131313] border border-[#3c4a42] text-[#e5e2e1] px-4 py-2 rounded-lg hover:border-[#adc6ff] transition-colors"
                             >
                                 <span className="material-symbols-outlined text-[16px]">
                                     play_circle

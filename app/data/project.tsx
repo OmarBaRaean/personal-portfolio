@@ -14,7 +14,7 @@ export const project1: MyProjectProps = {
   description:
     "Hybrid security lab spanning AWS and a local machine, simulating enterprise network conditions for hands-on detection and response practice. Designed to replicate real SOC environments with live traffic generation and alert tuning.",
   imageUrl: projectImages.homeLab,
-  docsUrl: [{label: 'Report', Url: `https://docs.google.com/document/d/1rQDxMp7bgzMQHUyu00wik3NtDlVI5eTU/edit?usp=sharing&ouid=103318493768062807648&rtpof=true&sd=true~`}],
+  docsUrl: [{label: 'GitHub', Url: `https://github.com/OmarBaRaean/hybrid-homelab`, icon: 'code'}],
   videoUrl: undefined,
 };
 

@@ -27,7 +27,7 @@ export default function SkillCollection({
     <div className="bg-[#1c1b1b] border border-[#3c4a42] rounded-xl p-4 flex flex-col gap-4 hover:border-[#3b82f6] transition-colors hover:shadow-[0_0_15px_rgba(59,130,246,0.1)]">
       <div className="flex items-center gap-2 text-[#4edea3]">
         <span className="material-symbols-outlined">{sections.icon}</span>
-        <h3 className="font-['Inter'] text-[14px] font-semibold tracking-[0.01em]">
+        <h3 className="text-[14px] font-semibold tracking-[0.01em]">
           {sections.title}
         </h3>
       </div>

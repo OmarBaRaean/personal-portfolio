@@ -17,10 +17,10 @@ export default function Credential({ Certificate = {
                     verified
                 </span>
                 <div>
-                    <h3 className="font-['Inter'] text-[14px] font-semibold tracking-[0.01em] text-[#e5e2e1]">
+                    <h3 className="text-[14px] font-semibold tracking-[0.01em] text-[#e5e2e1]">
                         {Certificate.title}
                     </h3>
-                    <p className="font-['Inter'] text-[14px] leading-[1.5] text-[#bbcabf]">
+                    <p className="text-[14px] leading-[1.5] text-[#bbcabf]">
                         Issued: {Certificate.issuedDate}
                     </p>
                 </div>

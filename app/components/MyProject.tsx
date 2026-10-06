@@ -2,6 +2,7 @@
 export interface MyUrls{
     Url: string;
     label: string;
+    icon?: string;
 }
 
 export interface MyProjectProps {
@@ -35,25 +36,23 @@ export default function MyProject({
             </div>
             <div className="p-4 flex flex-col gap-2 flex-grow">
                 <div className="flex justify-between items-start">
-                    <h3 className="font-['Inter'] text-[14px] font-semibold tracking-[0.01em] text-[#4edea3]">
+                    <h3 className="text-[14px] font-semibold tracking-[0.01em] text-[#4edea3]">
                         {TheProject.title}
                     </h3>
                 </div>
-                <p className="font-['Inter'] text-[14px] leading-[1.5] text-[#bbcabf] flex-grow line-clamp-2">
+                <p className="text-[14px] leading-[1.5] text-[#bbcabf] flex-grow line-clamp-2">
                     {TheProject.description}
                 </p>
-                <a
-                    className="font-['JetBrains_Mono'] text-[13px] leading-[1.2] font-medium text-[#adc6ff] hover:text-[#4edea3] transition-colors flex items-center gap-1 mt-2 cursor-pointer"
-                    onClick={(e) => {
-                        e.preventDefault();
-                        onViewClick?.();
-                    }}
+                <button
+                    type="button"
+                    className="self-start font-['JetBrains_Mono'] text-[13px] leading-[1.2] font-medium text-[#adc6ff] hover:text-[#4edea3] transition-colors flex items-center gap-1 mt-2 cursor-pointer"
+                    onClick={onViewClick}
                 >
                     View Details
                     <span className="material-symbols-outlined text-sm">
                         arrow_forward
                     </span>
-                </a>
+                </button>
             </div>
         </div>
     );

@@ -1,5 +1,4 @@
 "use client";
-import type { Metadata } from "next";
 import MyHeader from "@/app/components/MyHeader";
 import SkillCollection from "@/app/components/SkillCollection";
 import { skillset1, skillset2, allSkills } from "@/app/data/skills";
@@ -20,7 +19,7 @@ export default function PortfolioPage() {
 
   }, [selectedProject]);
   return (
-    <div className="font-['Inter'] text-[16px] leading-[1.6] bg-[#131313] antialiased flex flex-col min-h-screen">
+    <div className="text-[16px] leading-[1.6] bg-[#131313] antialiased flex flex-col min-h-screen">
       <ProjectPopup project={selectedProject} isOpen={popupOpen} onClose={() => setSelectedProject(null)} />
 
       <MyHeader />
@@ -32,34 +31,34 @@ export default function PortfolioPage() {
             <span className="font-['JetBrains_Mono'] text-[13px] leading-[1.2] font-medium text-[#4edea3]">
               &gt; System Initialization complete.
             </span>
-            <h1 className="font-['Inter'] text-[48px] leading-[1.1] tracking-[-0.02em] font-bold text-[#e5e2e1]">
+            <h1 className="text-[48px] leading-[1.1] tracking-[-0.02em] font-bold text-[#e5e2e1]">
               SOC Analyst &amp; <br />
               Security Engineer.
             </h1>
           </div>
-          <p className="font-['Inter'] text-[18px] leading-[1.6] text-[#bbcabf] max-w-3xl">
-            Detecting threats, automating response, and engineering secure systems.
-            Specializing in SIEM engineering with Splunk and Wazuh, network traffic
-            analysis, and building hands-on security labs across AWS and on-premise
-            environments.
+          <p className="text-[18px] leading-[1.6] text-[#bbcabf] max-w-3xl">
+            Currently building a Python automation layer on Wazuh to cut the manual
+            work between an alert firing and an analyst picking it up. Below is the
+            lab, the tooling, and the work behind it.
           </p>
           <div className="flex gap-4 mt-2 max-w-svw flex-wrap">
-            <a className="flex-1 font-['Inter'] text-[14px] font-semibold tracking-[0.01em] bg-[#10b981] text-[#00422b] px-6 py-2 rounded-lg hover:opacity-90 transition-opacity flex items-center gap-2"
-              href="https://drive.google.com/file/d/12IYb6PXHon2ItppRJuxqZadkTE3Rfd7y/view?usp=sharing"
+            <a className="flex-1 text-[14px] font-semibold tracking-[0.01em] bg-[#10b981] text-[#00422b] px-6 py-2 rounded-lg hover:opacity-90 transition-opacity flex items-center gap-2"
+              href="/Omar_Ba_Raean_CV.pdf"
               target="_blank"
+              rel="noopener noreferrer"
             >
               <span className="material-symbols-outlined text-sm">description </span>{" "}
               CV
             </a>
             <a
-              className="flex-1 font-['Inter'] text-[14px] font-semibold tracking-[0.01em] bg-transparent border border-[#3c4a42] text-[#e5e2e1] px-6 py-2 rounded-lg hover:border-[#adc6ff] transition-colors flex items-center gap-2"
+              className="flex-1 text-[14px] font-semibold tracking-[0.01em] bg-transparent border border-[#3c4a42] text-[#e5e2e1] px-6 py-2 rounded-lg hover:border-[#adc6ff] transition-colors flex items-center gap-2"
               href="https://github.com/OmarBaRaean"
               target="_blank"            >
               <span className="material-symbols-outlined text-sm">code</span>{" "}
               GitHub
             </a>
             <a
-              className="flex-1 font-['Inter'] text-[14px] font-semibold tracking-[0.01em] bg-transparent border border-[#3c4a42] text-[#e5e2e1] px-6 py-2 rounded-lg hover:border-[#adc6ff] transition-colors flex items-center gap-2"
+              className="flex-1 text-[14px] font-semibold tracking-[0.01em] bg-transparent border border-[#3c4a42] text-[#e5e2e1] px-6 py-2 rounded-lg hover:border-[#adc6ff] transition-colors flex items-center gap-2"
               href="https://www.linkedin.com/in/omar-ba-raean"
               target="_blank"
             >
@@ -67,7 +66,7 @@ export default function PortfolioPage() {
               LinkedIn
             </a>
             <a
-              className="flex-1 font-['Inter'] text-[14px] font-semibold tracking-[0.01em] bg-transparent border border-[#3c4a42] text-[#e5e2e1] px-6 py-2 rounded-lg hover:border-[#adc6ff] transition-colors flex items-center gap-2"
+              className="flex-1 text-[14px] font-semibold tracking-[0.01em] bg-transparent border border-[#3c4a42] text-[#e5e2e1] px-6 py-2 rounded-lg hover:border-[#adc6ff] transition-colors flex items-center gap-2"
               href="mailto:3mr.barayan@gmail.com"
             >
               <span className="material-symbols-outlined text-sm">mail</span>{" "}
@@ -78,10 +77,10 @@ export default function PortfolioPage() {
 
         {/* Technical Arsenal */}
         <section className="flex flex-col gap-6">
-          <h2 className="font-['Inter'] text-[24px] leading-[1.3] font-semibold text-[#e5e2e1] border-b border-[#3c4a42] pb-2">
+          <h2 className="text-[24px] leading-[1.3] font-semibold text-[#e5e2e1] border-b border-[#3c4a42] pb-2">
             Technical Arsenal
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {allSkills.map((skillset, index) => (
               <SkillCollection key={index} sections={skillset} />
             ))}          </div>
@@ -89,7 +88,7 @@ export default function PortfolioPage() {
 
         {/* Project Matrix */}
         <section className="flex flex-col gap-6">
-          <h2 className="font-['Inter'] text-[24px] leading-[1.3] font-semibold text-[#e5e2e1] border-b border-[#3c4a42] pb-2">
+          <h2 className="text-[24px] leading-[1.3] font-semibold text-[#e5e2e1] border-b border-[#3c4a42] pb-2">
             Project Matrix
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -101,7 +100,7 @@ export default function PortfolioPage() {
 
         {/* Credentials */}
         <section className="flex flex-col gap-6">
-          <h2 className="font-['Inter'] text-[24px] leading-[1.3] font-semibold text-[#e5e2e1] border-b border-[#3c4a42] pb-2">
+          <h2 className="text-[24px] leading-[1.3] font-semibold text-[#e5e2e1] border-b border-[#3c4a42] pb-2">
             Credentials
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

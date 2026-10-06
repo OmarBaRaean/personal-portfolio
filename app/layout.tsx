@@ -1,7 +1,14 @@
+import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"], weight: ["400", "600", "700"] });
+const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600", "700"] });
+
+export const metadata: Metadata = {
+  title: "Omar Ba Raean | SOC Analyst & Security Engineer",
+  description:
+    "SOC Analyst and Security Engineer specializing in SIEM engineering with Splunk and Wazuh, network traffic analysis, and hands-on security labs.",
+};
 
 export default function RootLayout({
   children,

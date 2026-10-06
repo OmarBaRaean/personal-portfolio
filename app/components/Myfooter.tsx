@@ -12,7 +12,7 @@ export default function MyFooter() {
                     ].map((link) => (
                         <a
                             key={link.label}
-                            className="font-['Inter'] text-[14px] leading-[1.5] text-[#bbcabf] hover:text-[#4edea3] transition-colors opacity-80 hover:opacity-100"
+                            className="text-[14px] leading-[1.5] text-[#bbcabf] hover:text-[#4edea3] transition-colors opacity-80 hover:opacity-100"
                             href={link.href}
                         >
                             {link.label}
