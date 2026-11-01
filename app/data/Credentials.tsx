@@ -25,9 +25,21 @@ export const cert4: CredentialInfo = {
 };
 
 export const cert5: CredentialInfo = {
-    title: "Microsoft Cyber Genius Challenge 2026",
+    title: "Microsoft Cyber Genius 1.0",
+    issuedDate: "2026",
+    CertURL: "https://www.credly.com/badges/16ad1762-acd0-417b-987a-63c34a9e5e2f/public_url",
+};
+
+export const cert6: CredentialInfo = {
+    title: "Microsoft Cyber Genius Challenge: Inside the Breach",
     issuedDate: "2026",
     CertURL: "https://www.credly.com/badges/8b12f027-9abb-4b91-ab8b-e2e8ff2eb523/public_url",
 };
 
-export const allCredentials: CredentialInfo[] = [cert1, cert2, cert3, cert4, cert5];
+export const cert7: CredentialInfo = {
+    title: "Microsoft Cyber Genius Challenge: Beyond Trust Boundaries",
+    issuedDate: "2026",
+    CertURL: "https://www.credly.com/badges/290f0795-b0a4-479b-944a-dcbe9a2b69c4/public_url",
+};
+
+export const allCredentials: CredentialInfo[] = [cert1, cert2, cert3, cert4, cert5, cert6, cert7];

@@ -9,6 +9,15 @@ const projectImages = {
   honeypot: "https://images.unsplash.com/photo-1563206767-5b18f218e8de?w=800&q=80",
 };
 
+export const hather: MyProjectProps = {
+  title: "Hather: On-Device Scam Detection (Arabic/English)",
+  description:
+    "On-device scam detector for SMS and WhatsApp messages in Arabic and English, built for users in Saudi Arabia. A Python rules engine checks links and senders against 91 brands, and a 0.5 GB Qwen3.5-0.8B model, distilled from a 27B teacher with LoRA fine-tuning, decides and explains the verdict in the message's language. Trained on 7,900+ examples built from grounded synthetic messages and privacy-scrubbed real SMS; on a hand-labelled test set of 533 real messages it matched its teacher, catching 77–84% of scams with 8–9% false alarms.",
+  imageUrl: "/hather.svg",
+  docsUrl: [],
+  videoUrl: undefined,
+};
+
 export const project1: MyProjectProps = {
   title: "Hybrid Home Lab",
   description:
@@ -36,4 +45,4 @@ export const project3: MyProjectProps = {
   videoUrl: "https://drive.google.com/file/d/1IJ6Nnm_nyMcwHH7LWLHmY4C900wFA9Kc/view?usp=drive_link",
 };
 
-export const allProjects: MyProjectProps[] = [project1, project2, project3];
+export const allProjects: MyProjectProps[] = [hather, project1, project2, project3];
